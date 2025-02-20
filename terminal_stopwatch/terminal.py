@@ -2,10 +2,10 @@
 
 import os
 from typing import List
-import pyfiglet
 from colorama import Cursor, Style
 
 from terminal_stopwatch.models import TimeDisplay
+from terminal_stopwatch.ascii_numbers import NUMBERS
 
 class TerminalController:
     @staticmethod
@@ -35,10 +35,20 @@ class TerminalController:
     @staticmethod
     def display_time(elapsed: float):
         time_display = TimeDisplay.from_seconds(elapsed)
-        ascii_art = pyfiglet.figlet_format(str(time_display))
-        for line in ascii_art.split('\n'):
-            if line.strip():
-                print(f"{Style.BRIGHT}{line}{Style.RESET_ALL}")
+        time_str = str(time_display)
+        
+        # 각 숫자의 높이만큼 반복
+        for line_idx in range(5):
+            line = ""
+            # 시간 문자열의 각 문자에 대해
+            for char in time_str:
+                if char == ' ':
+                    line += '  '
+                    continue
+                # 숫자나 콜론의 해당 라인 가져오기
+                char_line = NUMBERS[char][line_idx]
+                line += char_line + '  '  # 숫자 사이 간격 추가
+            print(f"{Style.BRIGHT}{line}{Style.RESET_ALL}")
 
     @staticmethod
     def display_laps(laps: List[float]):
