@@ -1,135 +1,97 @@
 # Terminal Stopwatch
 
-A terminal-based stopwatch application featuring ASCII art time display.
+터미널에서 실행되는 스톱워치 애플리케이션입니다. ASCII 아트를 활용한 큰 숫자 디스플레이와 랩 타임 기능을 제공합니다.
 
-<img src="stopwatch_final3.gif" width="302" alt="Terminal Stopwatch Demo">
+![Stopwatch Demo](stopwatch_final3.gif)
 
-[![PyPI version](https://badge.fury.io/py/terminal-stopwatch.svg)](https://badge.fury.io/py/terminal-stopwatch)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## 특징
 
-## Features
+- 큰 숫자로 시간 표시 (ASCII 아트)
+- 랩 타임 기록 기능
+- 키보드 단축키로 간편한 조작
+- 시:분:초 형식의 시간 표시 (1시간 이상 시)
+- 분:초 형식의 시간 표시 (1시간 미만 시)
 
-- ⏱️ Precise Time Measurement
-  - Accurate timing down to milliseconds
-  - Start, pause, and resume functionality
-- 🎯 Lap Time Recording
-  - Unlimited lap time recording
-  - Display of individual and cumulative lap times
-- 🎨 ASCII Art Time Display
-  - Large font ASCII art time display
-  - Highly visible and intuitive display
-- 🌈 Colorful Terminal Interface
-  - Color-coded function indicators
-  - User-friendly interface
+## 설치 방법
 
-## Installation
+Poetry를 사용한 설치:
+```bash
+poetry add terminal-stopwatch
+```
 
-### Using pip (Recommended)
-
+Pip를 사용한 설치:
 ```bash
 pip install terminal-stopwatch
 ```
 
-After installation, run:
+## 사용 방법
+
+### 패키지로 실행
+```python
+from terminal_stopwatch.main import main
+
+main()
+```
+
+### 명령줄에서 실행
 ```bash
-stopwatch
+# Poetry 환경에서
+poetry run python -m terminal_stopwatch
+
+# 일반 Python 환경에서
+python -m terminal_stopwatch
 ```
 
-### Using Executable
+## 키 조작 방법
 
-1. Download the `stopwatch` executable for your OS from the [latest release](https://github.com/taejun/stopwatch/releases/latest)
-2. Grant execution permission in terminal:
-   ```bash
-   chmod +x ./stopwatch
-   ```
-3. Run:
-   ```bash
-   ./stopwatch
-   ```
+- `s` - 시작/일시정지
+- `l` - 랩 타임 기록
+- `r` - 초기화
+- `q` - 종료
+- `Ctrl+C` - 강제 종료
 
-### From Source Code
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/taejun/stopwatch.git
-   cd stopwatch
-   ```
-
-2. Install Poetry (Package Manager):
-   ```bash
-   curl -sSL https://install.python-poetry.org | python3 -
-   ```
-
-3. Install dependencies:
-   ```bash
-   poetry install
-   ```
-
-4. Run:
-   ```bash
-   poetry run python -m terminal_stopwatch
-   ```
-
-## Usage
-
-### Basic Controls
-
-- `s`: 🚀 Start/Pause
-  - First press starts the stopwatch
-  - Second press pauses
-  - Press while paused resumes
-- `l`: 📝 Record Lap Time
-  - Records current time as a lap
-  - Unlimited number of laps
-- `r`: 🔄 Reset
-  - Clears all times and laps
-  - Only works when paused
-- `q`: 🚫 Quit
-  - Exits the program
-
-### Interface Layout
-
-```+-------------------------+
-|     ASCII Art Time      |
-|      00:00:00.000      |
-+-------------------------+
-| Last Lap: 00:00:00.000 |
-| Total Laps: 0          |
-+-------------------------+
-| Controls:              |
-| s: Start/Pause         |
-| l: Lap                 |
-| r: Reset               |
-| q: Quit                |
-+-------------------------+
-```
-
-## Project Structure
+## 프로젝트 구조
 
 ```
 terminal_stopwatch/
-├── __init__.py          # Package initialization and version info
-└── main.py              # Main application logic
-
+├── __init__.py        # 패키지 초기화
+├── constants.py       # 상수 정의
+├── models.py          # 데이터 모델 (TimeDisplay)
+├── terminal.py        # 터미널 제어
+├── input_handler.py   # 입력 처리
+├── stopwatch.py       # 스톱워치 로직
+└── main.py           # 메인 실행 파일
 ```
 
-## Development Environment
+## 개발 환경 설정
+
+1. 저장소 클론:
+```bash
+git clone https://github.com/taejun0622/stopwatch.git
+cd stopwatch
+```
+
+2. Poetry 환경 설정:
+```bash
+poetry install
+```
+
+3. 개발 모드로 실행:
+```bash
+poetry run python run.py
+```
+
+## 의존성
 
 - Python 3.11+
-- Poetry (Dependency Management)
-- PyInstaller (Executable Creation)
+- colorama
+- pyfiglet
 
-## Dependencies
+## 라이선스
 
-- pyfiglet (^1.0.2): ASCII Art Generation
-- colorama (^0.4.6): Terminal Color Support
-- readchar (^4.0.5): Keyboard Input Handling
+MIT License
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributing
+## 기여하기
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
