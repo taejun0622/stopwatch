@@ -6,11 +6,12 @@ authors = ["taejun <dugudugu0622@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.14"
 pyfiglet = "^1.0.2"
 keyboard = "^0.13.5"
 readchar = "^4.2.1"
 colorama = "^0.4.6"
+pyinstaller = "^6.12.0"
 
 
 [build-system]
