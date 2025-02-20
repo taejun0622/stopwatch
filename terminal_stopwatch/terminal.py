@@ -43,12 +43,13 @@ class TerminalController:
             # 시간 문자열의 각 문자에 대해
             for char in time_str:
                 if char == ' ':
-                    line += '  '
+                    line += " "  # 시:분:초 구분자 사이 간격
                     continue
                 # 숫자나 콜론의 해당 라인 가져오기
                 char_line = NUMBERS[char][line_idx]
-                line += char_line + '  '  # 숫자 사이 간격 추가
+                line += char_line
             print(f"{Style.BRIGHT}{line}{Style.RESET_ALL}")
+        print()  # 시간 표시 후 한 줄 띄우기
 
     @staticmethod
     def display_laps(laps: List[float]):
