@@ -52,13 +52,18 @@ def clear_line():
     print("\033[K", end="")
 
 def display_time(elapsed):
-    mins, secs = divmod(int(elapsed), 60)
-    hours, mins = divmod(mins, 60)
+    total_seconds = int(elapsed)
+    total_minutes = total_seconds // 60
     
-    # 1시간 미만일 때는 분:초만 표시
-    if hours == 0:
+    # 60분 미만일 때는 분:초만 표시
+    if total_minutes < 60:
+        mins = total_minutes
+        secs = total_seconds % 60
         time_str = f"{mins:02d} : {secs:02d}"
     else:
+        hours = total_minutes // 60
+        mins = total_minutes % 60
+        secs = total_seconds % 60
         time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
     
     # 볼드 처리를 위해 Style.BRIGHT 추가
@@ -73,13 +78,20 @@ def display_laps(laps):
     if laps:
         print("Lap Times:")
         for idx, lap in enumerate(laps, 1):
-            mins, secs = divmod(int(lap), 60)
-            hours, mins = divmod(mins, 60)
-            # 랩 타임도 같은 형식으로 표시
-            if hours == 0:
+            total_seconds = int(lap)
+            total_minutes = total_seconds // 60
+            
+            # 60분 미만일 때는 분:초만 표시
+            if total_minutes < 60:
+                mins = total_minutes
+                secs = total_seconds % 60
                 time_str = f"{mins:02d} : {secs:02d}"
             else:
+                hours = total_minutes // 60
+                mins = total_minutes % 60
+                secs = total_seconds % 60
                 time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
+            
             print(f"Lap {idx}: {Style.BRIGHT}{time_str}{Style.RESET_ALL}")
         print("-" * 40)
 
