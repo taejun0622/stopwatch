@@ -1,97 +1,98 @@
 # Terminal Stopwatch
 
-터미널에서 실행되는 스톱워치 애플리케이션입니다. ASCII 아트를 활용한 큰 숫자 디스플레이와 랩 타임 기능을 제공합니다.
+A terminal-based stopwatch application featuring ASCII art time display and lap time functionality.
 
 ![Stopwatch Demo](stopwatch_final3.gif)
 
-## 특징
+## Features
 
-- 큰 숫자로 시간 표시 (ASCII 아트)
-- 랩 타임 기록 기능
-- 키보드 단축키로 간편한 조작
-- 시:분:초 형식의 시간 표시 (1시간 이상 시)
-- 분:초 형식의 시간 표시 (1시간 미만 시)
+- Large number display using ASCII art
+- Lap time recording
+- Simple keyboard shortcuts
+- HH:MM:SS format for times over an hour
+- MM:SS format for times under an hour
+- Clean and intuitive terminal interface
 
-## 설치 방법
+## Installation
 
-Poetry를 사용한 설치:
+Using Poetry:
 ```bash
 poetry add terminal-stopwatch
 ```
 
-Pip를 사용한 설치:
+Using Pip:
 ```bash
 pip install terminal-stopwatch
 ```
 
-## 사용 방법
+## Usage
 
-### 패키지로 실행
+### As a Package
 ```python
 from terminal_stopwatch.main import main
 
 main()
 ```
 
-### 명령줄에서 실행
+### From Command Line
 ```bash
-# Poetry 환경에서
+# With Poetry
 poetry run python -m terminal_stopwatch
 
-# 일반 Python 환경에서
+# With Python
 python -m terminal_stopwatch
 ```
 
-## 키 조작 방법
+## Controls
 
-- `s` - 시작/일시정지
-- `l` - 랩 타임 기록
-- `r` - 초기화
-- `q` - 종료
-- `Ctrl+C` - 강제 종료
+- `s` - Start/Pause
+- `l` - Record Lap Time
+- `r` - Reset
+- `q` - Quit
+- `Ctrl+C` - Force Quit
 
-## 프로젝트 구조
+## Project Structure
 
 ```
 terminal_stopwatch/
-├── __init__.py        # 패키지 초기화
-├── constants.py       # 상수 정의
-├── models.py          # 데이터 모델 (TimeDisplay)
-├── terminal.py        # 터미널 제어
-├── input_handler.py   # 입력 처리
-├── stopwatch.py       # 스톱워치 로직
-└── main.py           # 메인 실행 파일
+├── __init__.py        # Package initialization
+├── constants.py       # Constants definition
+├── models.py          # Data models (TimeDisplay)
+├── terminal.py        # Terminal control
+├── input_handler.py   # Input handling
+├── stopwatch.py       # Stopwatch logic
+└── main.py           # Main execution
 ```
 
-## 개발 환경 설정
+## Development Setup
 
-1. 저장소 클론:
+1. Clone the repository:
 ```bash
 git clone https://github.com/taejun0622/stopwatch.git
 cd stopwatch
 ```
 
-2. Poetry 환경 설정:
+2. Set up Poetry environment:
 ```bash
 poetry install
 ```
 
-3. 개발 모드로 실행:
+3. Run in development mode:
 ```bash
 poetry run python run.py
 ```
 
-## 의존성
+## Dependencies
 
 - Python 3.11+
-- colorama
-- pyfiglet
+- colorama - Terminal color support
+- pyfiglet - ASCII art generation
 
-## 라이선스
+## License
 
 MIT License
 
-## 기여하기
+## Contributing
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -108,5 +109,6 @@ MIT License
 
 ### [1.0.0] - 2024-02-20
 - Initial Release
-- Basic stopwatch functionality
-- Published to PyPI 
+- Basic stopwatch functionality with ASCII art display
+- Lap time recording feature
+- Published to PyPI
