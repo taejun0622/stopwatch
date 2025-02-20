@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "terminal-stopwatch"
-version = "0.1.1"
+version = "1.0.0"
 description = "A terminal-based stopwatch application featuring ASCII art display"
 authors = ["taejun <dugudugu0622@gmail.com>"]
 readme = "README.md"
-homepage = "https://github.com/yourusername/stopwatch"
-repository = "https://github.com/yourusername/stopwatch"
+homepage = "https://www.taejun.lol"
+repository = "https://github.com/taejun0622/stopwatch"
 keywords = ["stopwatch", "terminal", "ascii-art", "timer"]
 classifiers = [
     "Development Status :: 4 - Beta",

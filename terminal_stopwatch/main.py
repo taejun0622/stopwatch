@@ -54,7 +54,7 @@ def clear_line():
 def display_time(elapsed):
     mins, secs = divmod(int(elapsed), 60)
     hours, mins = divmod(mins, 60)
-    time_str = f"{hours:02d}:{mins:02d}:{secs:02d}"
+    time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
     # 볼드 처리를 위해 Style.BRIGHT 추가
     ascii_art = pyfiglet.figlet_format(time_str)
     lines = ascii_art.split('\n')

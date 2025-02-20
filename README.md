@@ -11,7 +11,18 @@ A terminal-based stopwatch application featuring ASCII art display.
 
 ## Installation
 
-### Using Executable (Recommended)
+### Using pip (Recommended)
+
+```bash
+pip install terminal-stopwatch
+```
+
+Then run:
+```bash
+stopwatch
+```
+
+### Using Executable
 
 1. Download the `stopwatch` executable from the latest release
 2. Grant execution permission in terminal:
