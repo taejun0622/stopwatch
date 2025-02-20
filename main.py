@@ -55,12 +55,13 @@ def display_time(elapsed):
     mins, secs = divmod(int(elapsed), 60)
     hours, mins = divmod(mins, 60)
     time_str = f"{hours:02d}:{mins:02d}:{secs:02d}"
+    # 볼드 처리를 위해 Style.BRIGHT 추가
     ascii_art = pyfiglet.figlet_format(time_str)
     lines = ascii_art.split('\n')
     # 화면 중앙에 시간 표시
     for line in lines:
         if line.strip():
-            print(f"{line}")
+            print(f"{Style.BRIGHT}{line}{Style.RESET_ALL}")
 
 def display_laps(laps):
     if laps:
@@ -68,7 +69,7 @@ def display_laps(laps):
         for idx, lap in enumerate(laps, 1):
             mins, secs = divmod(int(lap), 60)
             hours, mins = divmod(mins, 60)
-            print(f"Lap {idx}: {hours:02d}:{mins:02d}:{secs:02d}")
+            print(f"Lap {idx}: {Style.BRIGHT}{hours:02d} : {mins:02d} : {secs:02d}{Style.RESET_ALL}")
         print("-" * 40)
 
 def get_input_with_timeout():
@@ -103,10 +104,10 @@ def main():
             display_time(elapsed)
             display_laps(stopwatch.laps)
             print("\nControls:")
-            print("[s] - Start/Pause")
-            print("[l] - Lap")
-            print("[r] - Reset")
-            print("[q] - Quit")
+            print("[s] - 🚀 Start/Pause")
+            print("[l] - 📝 Lap")
+            print("[r] - 🔄 Reset")
+            print("[q] - 🚫 Quit")
             print("\nEnter command: ", end='', flush=True)
 
             # 키 입력 처리
