@@ -2,7 +2,11 @@
 
 A terminal-based stopwatch application featuring ASCII art time display and lap time functionality.
 
-![Stopwatch Demo](stopwatch_final3.gif)
+
+[![PyPI version](https://badge.fury.io/py/terminal-stopwatch.svg)](https://badge.fury.io/py/terminal-stopwatch)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<img src="stopwatch_final3.gif" width="302" alt="Terminal Stopwatch Demo">
 
 ## Features
 

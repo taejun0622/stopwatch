@@ -17,4 +17,4 @@ __all__ = [
     'REFRESH_RATE',
 ]
 
-__version__ = "1.1.1" 
+__version__ = "1.1.2" 
