@@ -54,7 +54,13 @@ def clear_line():
 def display_time(elapsed):
     mins, secs = divmod(int(elapsed), 60)
     hours, mins = divmod(mins, 60)
-    time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
+    
+    # 1시간 미만일 때는 분:초만 표시
+    if hours == 0:
+        time_str = f"{mins:02d} : {secs:02d}"
+    else:
+        time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
+    
     # 볼드 처리를 위해 Style.BRIGHT 추가
     ascii_art = pyfiglet.figlet_format(time_str)
     lines = ascii_art.split('\n')
@@ -69,7 +75,12 @@ def display_laps(laps):
         for idx, lap in enumerate(laps, 1):
             mins, secs = divmod(int(lap), 60)
             hours, mins = divmod(mins, 60)
-            print(f"Lap {idx}: {Style.BRIGHT}{hours:02d} : {mins:02d} : {secs:02d}{Style.RESET_ALL}")
+            # 랩 타임도 같은 형식으로 표시
+            if hours == 0:
+                time_str = f"{mins:02d} : {secs:02d}"
+            else:
+                time_str = f"{hours:02d} : {mins:02d} : {secs:02d}"
+            print(f"Lap {idx}: {Style.BRIGHT}{time_str}{Style.RESET_ALL}")
         print("-" * 40)
 
 def get_input_with_timeout():
